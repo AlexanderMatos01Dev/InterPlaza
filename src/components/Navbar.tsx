@@ -77,8 +77,8 @@ export default function Navbar() {
                         isInfoOpen ? 'bg-[#DE4057] text-white' : 'bg-[#415159] text-white hover:bg-[#415159]/90'
                     }`}
                 >
-                  <span className="hidden sm:inline">INFORMACIÓN ÚTIL</span>
-                  <span className="sm:hidden">INFORMACIÓN ÚTIL</span>
+                  <span className="hidden sm:inline">DATOS ÚTILES</span>
+                  <span className="sm:hidden">DATOS ÚTILES</span>
                   <ChevronDown size={16} className={`ml-1 transform transition-transform ${isInfoOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {isInfoOpen && (
