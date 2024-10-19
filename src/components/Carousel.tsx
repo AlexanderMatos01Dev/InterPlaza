@@ -15,7 +15,7 @@ const slideData: SlideData[] = [
   },
   {
     id: 2,
-    title: "Plaza Lama",
+    title: "Super Lama",
     backgroundImage: "https://i.ibb.co/7Q78rjY/supermercado.png",
   },
   {

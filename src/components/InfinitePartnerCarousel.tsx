@@ -15,6 +15,9 @@ const partners: Partner[] = [
     { id: 3, name: "KFC", logo: "https://i.ibb.co/XZm00Xt/KCF-Logo-Redondo.png" },
     { id: 4, name: "Pizza Hut", logo: "https://i.ibb.co/TBDw341/Pizza-Hut-Logo-Redondo.png" },
     { id: 5, name: "Subway", logo: "https://i.ibb.co/kKdqsnX/Sub-Way-Logo-Redondo.png" },
+    { id: 6, name: "Super Lama", logo: "https://i.ibb.co/k9zc308/Super-Lama-Logo-Redondo.png" },
+    { id: 7, name: "Caribbean Cinemas", logo: "https://i.ibb.co/HgN2G5P/Caribbean-Cinema-Logo.png" },
+    { id: 8, name: "Teriyaki", logo: "https://i.ibb.co/d7Hpxyj/Teriyaki-Logo-Redondo.png" },
 ]
 
 export default function InfinitePartnerCarousel() {
