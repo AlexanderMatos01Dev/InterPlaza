@@ -63,8 +63,8 @@ export default function InfinitePartnerCarousel() {
                     {[...partners, ...partners].map((partner, index) => (
                         <motion.div
                             key={index}
-                            className="flex-shrink-0 w-30 h-30 relative"
-                            whileHover={{ scale: 1.1 }}
+                            className="flex-shrink-0 w-30 h-30 relative partner-item"
+                            whileHover={{ scale: 1 }}
                             transition={{ duration: 0.3 }}
                         >
                             <img
