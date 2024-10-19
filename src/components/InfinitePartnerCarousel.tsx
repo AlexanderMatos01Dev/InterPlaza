@@ -10,11 +10,11 @@ interface Partner {
 }
 
 const partners: Partner[] = [
-    { id: 1, name: "McDonald's", logo: "https://i.ibb.co/qnWLhDH/Mc-Logo-Redondo.png" },
-    { id: 2, name: "Burger King", logo: "https://i.ibb.co/cXLV09S/Burger-King-Logo-Redondo.png" },
-    { id: 3, name: "KFC", logo: "https://i.ibb.co/SJ0xj8q/Cn-P-19102024-132957-removebg-preview.png" },
-    { id: 4, name: "Pizza Hut", logo: "https://i.ibb.co/pyBjzvg/Pizza-Hut-Logo-Redondo.png" },
-    { id: 5, name: "Subway", logo: "https://i.ibb.co/9YZBt0X/Sub-Way-Logo-Redondo.png" },
+    { id: 1, name: "McDonald's", logo: "https://i.ibb.co/Yk9Pn2P/Mc-Logo-Redondo.png" },
+    { id: 2, name: "Burger King", logo: "https://i.ibb.co/ZVfTN5K/Burger-King-Logo-Redondo.png" },
+    { id: 3, name: "KFC", logo: "https://i.ibb.co/XZm00Xt/KCF-Logo-Redondo.png" },
+    { id: 4, name: "Pizza Hut", logo: "https://i.ibb.co/TBDw341/Pizza-Hut-Logo-Redondo.png" },
+    { id: 5, name: "Subway", logo: "https://i.ibb.co/kKdqsnX/Sub-Way-Logo-Redondo.png" },
 ]
 
 export default function InfinitePartnerCarousel() {
@@ -50,14 +50,11 @@ export default function InfinitePartnerCarousel() {
     }, [controls, carouselWidth, duration])
 
     return (
-        <div className="w-full max-w-7xl mx-auto px-4 py-12">
+        <div className="w-full max-w-7xl mx-auto px-4 py-12 relative">
             <h2 className="text-3xl font-bold mb-4 text-center" style={{ color: 'rgb(222, 64, 87)' }}>Nuestros Partners</h2>
-            <div
-                className="relative overflow-hidden"
-                ref={carouselRef}
-            >
-                <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
-                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+            <div className="relative overflow-hidden" ref={carouselRef}>
+                <div className="blur-effect" />
+                <div className="blur-effect blur-effect-right" />
                 <motion.div
                     className="flex space-x-8"
                     animate={controls}
@@ -74,6 +71,7 @@ export default function InfinitePartnerCarousel() {
                                 src={partner.logo}
                                 alt={partner.name}
                                 className="w-full h-full object-contain rounded-2xl"
+                                style={{ width: '200px', height: '200px' }}
                             />
                         </motion.div>
                     ))}
@@ -92,7 +90,6 @@ export default function InfinitePartnerCarousel() {
                     VER DIRECTORIO DE PARTNERS
                 </button>
             </div>
-
         </div>
     )
 }

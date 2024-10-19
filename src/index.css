@@ -1,3 +1,4 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,4 +10,18 @@
 
 .animate-scroll {
     animation: scroll 30s linear infinite;
+}
+
+.blur-effect {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background: linear-gradient(to right, white, transparent);
+    z-index: 10;
+}
+
+.blur-effect-right {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
 }
