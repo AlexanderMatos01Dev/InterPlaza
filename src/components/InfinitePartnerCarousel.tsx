@@ -21,7 +21,7 @@ export default function InfinitePartnerCarousel() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
     const containerRef = useRef<HTMLDivElement>(null)
 
-    const itemWidth = 240
+    const itemWidth = 144 // 240px reduced by 40%
     const gap = 32 // 8px * 4 (space-x-8)
     const totalWidth = partners.length * (itemWidth + gap)
 
@@ -62,10 +62,10 @@ export default function InfinitePartnerCarousel() {
                     {[...partners, ...partners].map((partner, index) => (
                         <motion.div
                             key={index}
-                            className="flex-shrink-0 w-60 h-60 relative flex items-center justify-center"
-                            whileHover={{ scale: 1.1, zIndex: 1 }}
+                            className="flex-shrink-0 w-36 h-36 relative flex items-center justify-center partner-item"
+                            whileHover={{ scale: 1 }}
                             animate={{
-                                scale: hoveredIndex === null || hoveredIndex === index ? 1 : 0.9,
+                                scale: hoveredIndex === null || hoveredIndex === index ? 1 : 0.8,
                                 filter: hoveredIndex === null || hoveredIndex === index ? 'blur(0px)' : 'blur(2px)',
                             }}
                             transition={{ duration: 0.3 }}
@@ -75,7 +75,7 @@ export default function InfinitePartnerCarousel() {
                             <img
                                 src={partner.logo}
                                 alt={partner.name}
-                                className="w-48 h-48 object-contain rounded-2xl"
+                                className="w-36 h-36 object-contain rounded-2xl"
                             />
                         </motion.div>
                     ))}
