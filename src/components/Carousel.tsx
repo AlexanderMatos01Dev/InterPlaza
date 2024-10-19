@@ -15,16 +15,15 @@ const slideData: SlideData[] = [
   },
   {
     id: 2,
-    title: "Supermercado",
-    backgroundImage: "https://i.ibb.co/mGZBSYC/dominos-pizza.jpg",
+    title: "Plaza Lama",
+    backgroundImage: "https://i.ibb.co/7Q78rjY/supermercado.png",
   },
   {
     id: 3,
-    title: "Cine",
-    backgroundImage: "https://i.ibb.co/9yCCNGk/pizza-hut.jpg",
+    title: "Caribbean Cinemas",
+    backgroundImage: "https://i.ibb.co/0F99WVL/img-2024-10-19-13-43-01.png",
   },
 ];
-
 export default function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
