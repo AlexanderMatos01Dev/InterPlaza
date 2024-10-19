@@ -92,6 +92,7 @@ export default function InfinitePartnerCarousel() {
                     VER DIRECTORIO DE PARTNERS
                 </button>
             </div>
+
         </div>
     )
 }
