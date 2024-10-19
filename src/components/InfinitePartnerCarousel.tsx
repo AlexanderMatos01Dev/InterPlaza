@@ -21,7 +21,7 @@ export default function InfinitePartnerCarousel() {
     const controls = useAnimation()
     const carouselRef = useRef<HTMLDivElement>(null)
 
-    const itemWidth = 208 // 200px width + 8px gap
+    const itemWidth = 125 // 200px width reduced by 40% + 8px gap
     const carouselWidth = partners.length * itemWidth
     const duration = 20 // seconds for one full rotation
 
@@ -63,7 +63,7 @@ export default function InfinitePartnerCarousel() {
                     {[...partners, ...partners].map((partner, index) => (
                         <motion.div
                             key={index}
-                            className="flex-shrink-0 w-48 h-48 relative"
+                            className="flex-shrink-0 w-30 h-30 relative"
                             whileHover={{ scale: 1.1 }}
                             transition={{ duration: 0.3 }}
                         >
@@ -71,7 +71,7 @@ export default function InfinitePartnerCarousel() {
                                 src={partner.logo}
                                 alt={partner.name}
                                 className="w-full h-full object-contain rounded-2xl"
-                                style={{ width: '200px', height: '200px' }}
+                                style={{ width: '120px', height: '120px' }} // 200px reduced by 40%
                             />
                         </motion.div>
                     ))}
