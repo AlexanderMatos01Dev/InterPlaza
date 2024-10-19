@@ -43,7 +43,7 @@ export default function InfinitePartnerCarousel() {
 
     return (
         <div className="w-full max-w-7xl mx-auto px-4 py-12 relative">
-            <h2 className="text-3xl font-bold mb-4 text-center text-[rgb(222,64,87)]">Nuestros Partners</h2>
+            <h2 className="text-3xl font-bold mb-4 text-center text-[rgb(222,64,87)]">ANCLAS</h2>
             <div className="relative overflow-hidden" ref={containerRef}>
                 <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
                 <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
@@ -88,7 +88,7 @@ export default function InfinitePartnerCarousel() {
                 <button
                     className="px-6 py-3 rounded-full text-lg font-semibold text-white transition-colors duration-300 bg-[rgb(222,64,87)] hover:bg-[rgba(222,64,87,0.9)]"
                 >
-                    VER DIRECTORIO DE PARTNERS
+                    VER DIRECTORIO DE ANCLAS
                 </button>
             </div>
         </div>
