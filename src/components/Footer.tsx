@@ -77,7 +77,7 @@ export default function Footer() {
                         </div>
                         <div className="flex items-start">
                             <MapPin size={18} className="mr-3 text-gray-700 mt-1 flex-shrink-0" />
-                            <p>Frente a la Av. Kennedy<br />A menos de 5 minutos caminando desde la estación Juan Pablo Duarte.</p>
+                            <p>Frente a  lore impsun impsun lore<br />A menos de 5 minutos caminando desde impsum lore lore impsum.</p>
                         </div>
                     </div>
 
@@ -117,7 +117,7 @@ export default function Footer() {
 
             <div className="border-t border-gray-300 mt-8 pt-8 pb-4">
                 <div className="max-w-7xl mx-auto px-4 text-center text-sm">
-                    <p>Todos los derechos reservados © 2013 - 2024 InterPlaza | Powered by SmartIT</p>
+                    <p>Todos los derechos reservados © 2024 InterPlaza | Alexander Matos</p>
                 </div>
             </div>
         </footer>
