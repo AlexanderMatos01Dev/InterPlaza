@@ -7,6 +7,7 @@ import EventsAndActivities from './components/EventsAndActivities'
 
 function App() {
     return (
+
         <div className="min-h-screen relative flex flex-col">
             <div className="absolute inset-0 bg-[url('https://i.ibb.co/jR60H57/Inter-Plaza-Fondo.png')] bg-cover bg-center opacity-50"></div>
             <div className="absolute inset-0 bg-white opacity-80"></div>
