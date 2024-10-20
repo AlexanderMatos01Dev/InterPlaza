@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
@@ -20,7 +20,7 @@ const partners: Partner[] = [
     { id: 8, name: "Teriyaki", logo: "https://i.ibb.co/d7Hpxyj/Teriyaki-Logo-Redondo.png" },
 ]
 
-export default function InfinitePartnerCarousel() {
+export default function Component() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
     const containerRef = useRef<HTMLDivElement>(null)
 
@@ -50,7 +50,7 @@ export default function InfinitePartnerCarousel() {
 
     return (
         <div className="w-full max-w-7xl mx-auto px-4 py-12 relative">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-[rgb(222,64,87)]">Nuestros Partners</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-[rgb(222,62,86)]">Nuestros Partners</h2>
             <div className="relative overflow-hidden" ref={containerRef}>
                 <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
                 <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
@@ -93,11 +93,13 @@ export default function InfinitePartnerCarousel() {
                 </motion.div>
             </div>
             <div className="mt-8 text-center">
-                <button
-                    className="px-4 py-2 md:px-6 md:py-3 rounded-full text-base md:text-lg font-semibold text-white transition-colors duration-300 bg-[rgb(222,64,87)] hover:bg-[rgba(222,64,87,0.9)]"
+                <motion.button
+                    className="px-8 py-4 bg-[rgb(222,62,86)] text-white rounded-full text-lg font-semibold transition-colors duration-300 hover:bg-[rgba(222,62,86,0.8)]"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                 >
                     VER DIRECTORIO DE PARTNERS
-                </button>
+                </motion.button>
             </div>
         </div>
     )

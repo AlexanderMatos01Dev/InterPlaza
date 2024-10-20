@@ -1,6 +1,4 @@
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Youtube, Linkedin } from 'lucide-react'
-import Link from 'next/link'
-import Image from 'next/image'
 
 const socialIcons = [
     { Icon: Facebook, href: '#', label: 'Facebook' },
@@ -21,29 +19,32 @@ const navLinks = [
 
 export default function Footer() {
     return (
-        <footer className="bg-[rgb(71,80,85)] text-white">
+        <footer className="bg-gray-100 text-gray-700">
             <div className="max-w-7xl mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div className="flex flex-col">
-                        <div className="h-16 mb-6 relative">
-                            <Image
-                                src="/placeholder.svg"
+                        <div className="h-24 mb-6 relative">
+                            <img
+                                src="https://i.ibb.co/sC900wQ/img-2024-10-18-18-53-56-removebg-preview.png"
                                 alt="InterPlaza Logo"
-                                layout="fill"
-                                objectFit="contain"
+                                className="h-full w-auto object-contain absolute left-0"
+                                onError={(e) => {
+                                    e.currentTarget.src = 'https://via.placeholder.com/150';
+                                    e.currentTarget.alt = 'Placeholder Logo';
+                                }}
                             />
                         </div>
                         <div className="flex flex-col space-y-3">
                             <div className="flex items-center">
-                                <Phone size={18} className="mr-3 text-[rgb(222,64,87)]" />
+                                <Phone size={18} className="mr-3 text-red-600" />
                                 <p>809.234.5678</p>
                             </div>
                             <div className="flex items-center">
-                                <Mail size={18} className="mr-3 text-[rgb(222,64,87)]" />
+                                <Mail size={18} className="mr-3 text-red-600" />
                                 <p>info@interplaza.com.do</p>
                             </div>
                             <div className="flex items-start">
-                                <Clock size={18} className="mr-3 text-[rgb(222,64,87)] mt-1" />
+                                <Clock size={18} className="mr-3 text-red-600 mt-1" />
                                 <div>
                                     <p>Lunes a Viernes: 10:00am – 9:00pm</p>
                                     <p>Domingos y Feriados: 11:00am – 8:00pm</p>
@@ -53,42 +54,42 @@ export default function Footer() {
                     </div>
 
                     <div className="flex flex-col">
-                        <h3 className="text-lg font-semibold mb-4 text-[rgb(222,64,87)]">ENLACES</h3>
+                        <h3 className="text-lg font-semibold mb-4 text-gray-700">ENLACES</h3>
                         <nav className="flex flex-col space-y-2">
                             {navLinks.map((link) => (
-                                <Link
+                                <a
                                     key={link.name}
                                     href={link.href}
-                                    className="hover:text-[rgb(222,64,87)] transition-colors"
+                                    className="hover:text-red-600 transition-colors"
                                 >
                                     {link.name}
-                                </Link>
+                                </a>
                             ))}
                         </nav>
                     </div>
 
                     <div className="flex flex-col">
-                        <h3 className="text-lg font-semibold mb-4 text-[rgb(222,64,87)]">UBICACIÓN</h3>
+                        <h3 className="text-lg font-semibold mb-4 text-gray-700">UBICACIÓN</h3>
                         <div className="bg-white rounded-lg overflow-hidden mb-4 h-[200px] relative">
-                            <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                                <MapPin size={48} className="text-[rgb(71,80,85)]" />
+                            <div className="w-full h-full flex items-center justify-center border border-gray-300">
+                                <MapPin size={48} className="text-gray-700" />
                             </div>
                         </div>
                         <div className="flex items-start">
-                            <MapPin size={18} className="mr-3 text-[rgb(222,64,87)] mt-1 flex-shrink-0" />
+                            <MapPin size={18} className="mr-3 text-gray-700 mt-1 flex-shrink-0" />
                             <p>Frente a la Av. Kennedy<br />A menos de 5 minutos caminando desde la estación Juan Pablo Duarte.</p>
                         </div>
                     </div>
 
                     <div className="flex flex-col">
-                        <h3 className="text-lg font-semibold mb-4 text-[rgb(222,64,87)]">SÍGUENOS</h3>
+                        <h3 className="text-lg font-semibold mb-4 text-gray-700">SÍGUENOS</h3>
                         <div className="flex flex-wrap gap-4">
                             {socialIcons.map(({ Icon, href, label }) => (
                                 <a
                                     key={label}
                                     href={href}
                                     aria-label={label}
-                                    className="bg-white text-[rgb(71,80,85)] p-3 rounded-full hover:bg-[rgb(222,64,87)] hover:text-white transition-colors"
+                                    className="bg-gray-700 text-white p-3 rounded-full hover:bg-red-600 transition-colors"
                                 >
                                     <Icon size={24} />
                                 </a>
@@ -96,15 +97,15 @@ export default function Footer() {
                         </div>
                         <div className="mt-6">
                             <h4 className="text-sm font-semibold mb-2">SUSCRÍBETE A NUESTRO NEWSLETTER</h4>
-                            <form className="flex">
+                            <form className="flex" onSubmit={(e) => e.preventDefault()}>
                                 <input
                                     type="email"
                                     placeholder="Tu correo electrónico"
-                                    className="flex-grow px-4 py-2 rounded-l-md text-[rgb(71,80,85)]"
+                                    className="flex-grow px-4 py-2 rounded-l-md text-gray-700 border border-gray-300"
                                 />
                                 <button
                                     type="submit"
-                                    className="bg-[rgb(222,64,87)] px-4 py-2 rounded-r-md hover:bg-[rgb(222,64,87)]/90 transition-colors"
+                                    className="bg-gray-700 text-white px-4 py-2 rounded-r-md hover:bg-red-600 transition-colors"
                                 >
                                     Enviar
                                 </button>
@@ -114,9 +115,9 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="border-t border-white/20 mt-8 pt-8 pb-4">
+            <div className="border-t border-gray-300 mt-8 pt-8 pb-4">
                 <div className="max-w-7xl mx-auto px-4 text-center text-sm">
-                    <p>Todos los derechos reservados ©  2024 InterPlaza | Alexander Matos</p>
+                    <p>Todos los derechos reservados © 2013 - 2024 InterPlaza | Powered by SmartIT</p>
                 </div>
             </div>
         </footer>
