@@ -84,8 +84,9 @@ export default function Navbar() {
                 {isInfoOpen && (
                     <div
                         ref={infoDropdownRef}
-                        className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10"
+                        className="absolute right-0 mt-2 bg-white rounded-md shadow-lg py-1 z-10"
                         style={{
+                          width: infoButtonRef.current?.offsetWidth,
                           boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
                         }}
                     >
@@ -133,6 +134,13 @@ export default function Navbar() {
                       {link.name}
                     </a>
                 ))}
+              </div>
+              <div className="pt-4 pb-3 border-t border-gray-200">
+                <div className="flex items-center px-5">
+                  <button className="w-full bg-[#DE4057] text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#484E51] transition-all duration-300">
+                    CONTÁCTANOS
+                  </button>
+                </div>
               </div>
             </div>
         )}

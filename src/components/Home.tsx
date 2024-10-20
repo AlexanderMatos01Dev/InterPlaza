@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from './Carousel';
-import Partners from './InfinitePartnerCarousel.tsx';
+import Partners from './InfinitePartnerCarousel';
+import Component from './Categorias-InterPlaza';
 
 const Home: React.FC = () => {
     return (
@@ -8,6 +9,9 @@ const Home: React.FC = () => {
             <Carousel />
             <div className="mt-8 text-center">
                 <Partners />
+            </div>
+            <div className="mt-8">
+                <Component />
             </div>
         </div>
     );
