@@ -8,7 +8,7 @@ const WorkWithUsSection: React.FC = () => {
     };
 
     return (
-        <div className="relative w-full h-[50vh] sm:h-[40vh] md:h-[30vh] lg:h-[25vh] flex items-center justify-center">
+        <div className="relative w-full h-[50vh] sm:h-[40vh] md:h-[30vh] lg:h-[25vh] flex items-center justify-center overflow-hidden">
             {/* Fondo con imagen */}
             <motion.div
                 className="absolute inset-0 bg-cover bg-center"
