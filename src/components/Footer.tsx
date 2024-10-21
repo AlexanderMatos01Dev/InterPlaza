@@ -19,7 +19,7 @@ const navLinks = [
 
 export default function Footer() {
     return (
-        <footer className="relative bg-gray-200 text-gray-700 w-full overflow-hidden">
+        <footer className="relative bg-gray-200 text-gray-700">
             {/* Imagen centrada con opacidad */}
             <div className="absolute inset-0 flex justify-center items-center opacity-10 pointer-events-none">
                 <img
@@ -46,15 +46,15 @@ export default function Footer() {
                         </div>
                         <div className="flex flex-col space-y-3">
                             <div className="flex items-center">
-                                <Phone size={18} className="mr-3 text-red-600"/>
+                                <Phone size={18} className="mr-3 text-red-600" />
                                 <p>809.234.5678</p>
                             </div>
                             <div className="flex items-center">
-                                <Mail size={18} className="mr-3 text-red-600"/>
+                                <Mail size={18} className="mr-3 text-red-600" />
                                 <p>info@interplaza.com.do</p>
                             </div>
                             <div className="flex items-start">
-                                <Clock size={18} className="mr-3 text-red-600 mt-1"/>
+                                <Clock size={18} className="mr-3 text-red-600 mt-1" />
                                 <div>
                                     <p>Lunes a Viernes: 10:00am – 9:00pm</p>
                                     <p>Domingos y Feriados: 11:00am – 8:00pm</p>
@@ -84,13 +84,12 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold mb-4 text-gray-700">UBICACIÓN</h3>
                         <div className="bg-white rounded-lg overflow-hidden mb-4 h-[200px] relative">
                             <div className="w-full h-full flex items-center justify-center border border-gray-300">
-                                <MapPin size={48} className="text-gray-700"/>
+                                <MapPin size={48} className="text-gray-700" />
                             </div>
                         </div>
                         <div className="flex items-start">
-                            <MapPin size={18} className="mr-3 text-gray-700 mt-1 flex-shrink-0"/>
-                            <p>Frente a lore impsun impsun lore<br/>A menos de 5 minutos caminando desde impsum lore
-                                lore impsum.</p>
+                            <MapPin size={18} className="mr-3 text-gray-700 mt-1 flex-shrink-0" />
+                            <p>Frente a  lore impsun impsun lore<br />A menos de 5 minutos caminando desde impsum lore lore impsum.</p>
                         </div>
                     </div>
 
@@ -98,14 +97,14 @@ export default function Footer() {
                     <div className="flex flex-col">
                         <h3 className="text-lg font-semibold mb-4 text-gray-700">SÍGUENOS</h3>
                         <div className="flex flex-wrap gap-4">
-                            {socialIcons.map(({Icon, href, label}) => (
+                            {socialIcons.map(({ Icon, href, label }) => (
                                 <a
                                     key={label}
                                     href={href}
                                     aria-label={label}
                                     className="bg-gray-700 text-white p-3 rounded-full hover:bg-red-600 transition-colors"
                                 >
-                                    <Icon size={24}/>
+                                    <Icon size={24} />
                                 </a>
                             ))}
                         </div>
