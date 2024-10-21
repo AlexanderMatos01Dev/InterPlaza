@@ -19,7 +19,12 @@ const WorkWithUsSection: React.FC = () => {
             />
 
             {/* Filtro oscuro sobre la imagen */}
-            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <motion.div
+                className="absolute inset-0 w-full h-full bg-black opacity-50"
+                initial={{ scale: 1 }}
+                animate={{ scale: 1.05 }}
+                transition={{ duration: 0.5 }}
+            />
 
             {/* Contenido centrado */}
             <div className="relative z-10 text-center px-4">

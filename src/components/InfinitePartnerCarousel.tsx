@@ -51,7 +51,7 @@ export default function Component() {
 
     return (
         <div className="w-full max-w-7xl mx-auto px-4 py-12 relative">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-[rgb(222,62,86)]">Nuestros Partners</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-[rgb(222,62,86)]">ANCLAS</h2>
             <div className="relative overflow-hidden" ref={containerRef}>
                 <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
                 <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
@@ -99,7 +99,7 @@ export default function Component() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                 >
-                    VER DIRECTORIO DE PARTNERS
+                    VER DIRECTORIO DE ANCLAS
                 </motion.button>
             </div>
         </div>
