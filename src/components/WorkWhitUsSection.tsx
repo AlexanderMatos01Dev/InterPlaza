@@ -8,10 +8,10 @@ const WorkWithUsSection: React.FC = () => {
     };
 
     return (
-        <div className="relative w-full h-[50vh] max-h-[50vh] flex items-center justify-center">
+        <div className="relative w-full h-[50vh] sm:h-[40vh] md:h-[30vh] lg:h-[25vh] flex items-center justify-center">
             {/* Fondo con imagen */}
             <motion.div
-                className="absolute inset-0 bg-cover bg-center h-[50vh] max-h-[50vh]"
+                className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('https://i.ibb.co/xDgczz6/Fondo-Trabajo.png')` }}
                 initial={{ scale: 1 }}
                 animate={{ scale: 1.05 }}
@@ -19,7 +19,7 @@ const WorkWithUsSection: React.FC = () => {
             />
 
             {/* Filtro oscuro sobre la imagen */}
-            <div className="absolute inset-0 bg-black opacity-50 h-[50vh] max-h-[50vh]"></div>
+            <div className="absolute inset-0 bg-black opacity-50"></div>
 
             {/* Contenido centrado */}
             <div className="relative z-10 text-center px-4">
@@ -34,14 +34,14 @@ const WorkWithUsSection: React.FC = () => {
 
                 <motion.button
                     onClick={handleButtonClick}
-                    className="px-6 py-3 bg-[rgb(222,62,86)] text-white text-lg font-semibold rounded-full"
+                    className="mt-4 px-6 py-3 bg-[rgb(222,62,86)] text-white text-lg font-semibold rounded-full"
                     initial={{ scale: 0.9 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.3 }}
                     whileHover={{ scale: 1.05, backgroundColor: 'rgba(222,62,86,0.8)' }}
                     whileTap={{ scale: 0.95 }}
                 >
-                    Llenar Formulario
+                    Llena el Formulario
                 </motion.button>
             </div>
         </div>
