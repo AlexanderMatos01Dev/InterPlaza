@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
-import { motion, useAnimation, useMotionValue, useDragControls } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 interface Partner {
     id: number
@@ -24,15 +24,9 @@ const partners: Partner[] = [
 export default function Component() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
     const containerRef = useRef<HTMLDivElement>(null)
-    const carouselRef = useRef<HTMLDivElement>(null)
 
     const [itemWidth, setItemWidth] = useState(144)
     const gap = 32
-
-    const controls = useAnimation()
-    const x = useMotionValue(0)
-    const dragControls = useDragControls()
-    const [isDragging, setIsDragging] = useState(false)
 
     useEffect(() => {
         const updateItemWidth = () => {
@@ -55,49 +49,6 @@ export default function Component() {
 
     const totalWidth = partners.length * (itemWidth + gap)
 
-    useEffect(() => {
-        const autoScroll = () => {
-            controls.start({
-                x: -totalWidth,
-                transition: {
-                    duration: 20,
-                    ease: "linear",
-                    repeat: Infinity,
-                    repeatType: "loop"
-                }
-            })
-        }
-
-        if (!isDragging) {
-            autoScroll()
-        }
-
-        return () => controls.stop()
-    }, [controls, totalWidth, isDragging])
-
-    const handleDragStart = () => {
-        controls.stop()
-        setIsDragging(true)
-    }
-
-    const handleDragEnd = () => {
-        setIsDragging(false)
-        const currentX = x.get()
-        controls.start({
-            x: currentX,
-            transition: {
-                duration: 0.5,
-                type: "spring",
-                stiffness: 400,
-                damping: 40
-            }
-        })
-    }
-
-    const startDrag = (event: React.PointerEvent<HTMLDivElement>) => {
-        dragControls.start(event, { snapToCursor: false })
-    }
-
     return (
         <div className="w-full max-w-7xl mx-auto px-4 py-12 relative">
             <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-[rgb(222,62,86)]">Nuestros Partners</h2>
@@ -105,18 +56,19 @@ export default function Component() {
                 <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
                 <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
                 <motion.div
-                    ref={carouselRef}
-                    className="flex space-x-4 sm:space-x-6 md:space-x-8 cursor-grab active:cursor-grabbing"
-                    drag="x"
-                    dragControls={dragControls}
-                    dragConstraints={{
-                        left: -totalWidth,
-                        right: 0
+                    className="flex space-x-4 sm:space-x-6 md:space-x-8"
+                    animate={{
+                        x: [-totalWidth, 0],
                     }}
-                    onDragStart={handleDragStart}
-                    onDragEnd={handleDragEnd}
-                    animate={controls}
-                    style={{ x, width: `${totalWidth * 2}px` }}
+                    transition={{
+                        x: {
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 20,
+                            ease: "linear",
+                        },
+                    }}
+                    style={{ width: `${totalWidth * 2}px` }}
                 >
                     {[...partners, ...partners].map((partner, index) => (
                         <motion.div
@@ -131,13 +83,11 @@ export default function Component() {
                             transition={{ duration: 0.3 }}
                             onHoverStart={() => setHoveredIndex(index)}
                             onHoverEnd={() => setHoveredIndex(null)}
-                            onPointerDown={startDrag}
                         >
                             <img
                                 src={partner.logo}
                                 alt={partner.name}
                                 className="w-full h-full object-contain rounded-2xl"
-                                draggable="false"
                             />
                         </motion.div>
                     ))}

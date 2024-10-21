@@ -19,9 +19,19 @@ const navLinks = [
 
 export default function Footer() {
     return (
-        <footer className="bg-gray-100 text-gray-700">
-            <div className="max-w-7xl mx-auto px-4 py-12">
+        <footer className="relative bg-gray-200 text-gray-700">
+            {/* Imagen centrada con opacidad */}
+           <div className="absolute inset-0 flex justify-center items-center opacity-10 pointer-events-none">
+    <img
+        src="https://i.ibb.co/NTJHBGS/Inter-Plaza-Icono.png"
+        alt="InterPlaza Logo"
+        className="w-3/8 h-full object-cover transform translate-x-[-90%]"
+    />
+</div>
+
+            <div className="relative max-w-7xl mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {/* Información de contacto */}
                     <div className="flex flex-col">
                         <div className="h-24 mb-6 relative">
                             <img
@@ -53,6 +63,7 @@ export default function Footer() {
                         </div>
                     </div>
 
+                    {/* Enlaces */}
                     <div className="flex flex-col">
                         <h3 className="text-lg font-semibold mb-4 text-gray-700">ENLACES</h3>
                         <nav className="flex flex-col space-y-2">
@@ -68,6 +79,7 @@ export default function Footer() {
                         </nav>
                     </div>
 
+                    {/* Ubicación */}
                     <div className="flex flex-col">
                         <h3 className="text-lg font-semibold mb-4 text-gray-700">UBICACIÓN</h3>
                         <div className="bg-white rounded-lg overflow-hidden mb-4 h-[200px] relative">
@@ -81,6 +93,7 @@ export default function Footer() {
                         </div>
                     </div>
 
+                    {/* Redes sociales */}
                     <div className="flex flex-col">
                         <h3 className="text-lg font-semibold mb-4 text-gray-700">SÍGUENOS</h3>
                         <div className="flex flex-wrap gap-4">
@@ -115,8 +128,9 @@ export default function Footer() {
                 </div>
             </div>
 
+            {/* Derechos reservados */}
             <div className="border-t border-gray-300 mt-8 pt-8 pb-4">
-                <div className="max-w-7xl mx-auto px-4 text-center text-sm">
+                <div className="max-w-7xl mx-auto px-4 text-center text-sm relative z-10">
                     <p>Todos los derechos reservados © 2024 InterPlaza | Alexander Matos</p>
                 </div>
             </div>

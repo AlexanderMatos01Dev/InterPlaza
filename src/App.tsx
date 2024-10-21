@@ -1,13 +1,14 @@
-import Navbar from './components/Navbar'
-import Home from './components/Home'
-import Footer from './components/Footer'
-import Categories from './components/Categories'
-import InfinitePartnerCarousel from './components/InfinitePartnerCarousel'
-import EventsAndActivities from './components/EventsAndActivities'
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Footer from './components/Footer';
+import Categories from './components/Categories';
+import InfinitePartnerCarousel from './components/InfinitePartnerCarousel';
+import OpeningHours from './components/OpeningHours';
+import EventsAndActivities from './components/EventsAndActivities';
+import WorkWithUsSection from './components/WorkWhitUsSection';
 
 function App() {
     return (
-
         <div className="min-h-screen relative flex flex-col">
             <div className="absolute inset-0 bg-[url('https://i.ibb.co/jR60H57/Inter-Plaza-Fondo.png')] bg-cover bg-center opacity-50"></div>
             <div className="absolute inset-0 bg-white opacity-80"></div>
@@ -25,13 +26,18 @@ function App() {
                     </div>
                     <div className="w-full max-w-7xl mx-auto my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
                     <div className="w-full">
+                        <OpeningHours />
+                    </div>
+                    <div className="w-full max-w-7xl mx-auto my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
+                    <div className="w-full">
                         <EventsAndActivities />
                     </div>
                 </main>
+                <WorkWithUsSection />
                 <Footer />
             </div>
         </div>
-    )
+    );
 }
 
-export default App
+export default App;

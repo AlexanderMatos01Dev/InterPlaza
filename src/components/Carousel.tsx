@@ -54,6 +54,10 @@ export default function Carousel() {
     setCurrentSlide((prev) => (prev - 1 + slideData.length) % slideData.length)
   }
 
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index)
+  }
+
   return (
       <div className="relative w-full h-[250px] sm:h-[350px] overflow-hidden rounded-xl shadow-lg">
         {slideData.map((slide, index) => (
@@ -94,6 +98,18 @@ export default function Carousel() {
         >
           <ChevronRight size={20} />
         </button>
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          {slideData.map((_, index) => (
+              <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                      index === currentSlide ? 'bg-white' : 'bg-white/50'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+              />
+          ))}
+        </div>
       </div>
   )
 }
