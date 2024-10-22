@@ -11,7 +11,8 @@ import SuscribeSection from "./components/SuscribeSection.tsx";
 function App() {
     return (
         <div className="min-h-screen relative flex flex-col">
-            <div className="absolute inset-0 bg-[url(https://i.ibb.co/tDLwxWZ/Inter-Plaza-Fondo.png')] bg-cover bg-center opacity-50"></div>
+            <div
+                className="absolute inset-0 bg-[url(https://i.ibb.co/g4R2gk2/img-2024-10-21-19-52-20-min.png)] bg-contain bg-center opacity-50"></div>
             <div className="absolute inset-0 bg-white opacity-80"></div>
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar/>

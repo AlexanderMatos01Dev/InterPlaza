@@ -10,17 +10,16 @@ interface Partner {
 }
 
 const partners: Partner[] = [
-    { id: 1, name: "McDonald's", logo: "https://i.ibb.co/Yk9Pn2P/Mc-Logo-Redondo.png" },
-    { id: 2, name: "Burger King", logo: "https://i.ibb.co/ZVfTN5K/Burger-King-Logo-Redondo.png" },
-    { id: 3, name: "KFC", logo: "https://i.ibb.co/XZm00Xt/KCF-Logo-Redondo.png" },
-    { id: 4, name: "Pizza Hut", logo: "https://i.ibb.co/TBDw341/Pizza-Hut-Logo-Redondo.png" },
-    { id: 5, name: "Subway", logo: "https://i.ibb.co/kKdqsnX/Sub-Way-Logo-Redondo.png" },
-    { id: 6, name: "Super Lama", logo: "https://i.ibb.co/cFxNVb5/Super-Lama-Logo-Redondo.png" },
-    { id: 7, name: "Caribbean Cinemas", logo: "https://i.ibb.co/HgN2G5P/Caribbean-Cinema-Logo.png" },
-    { id: 8, name: "Teriyaki", logo: "https://i.ibb.co/d7Hpxyj/Teriyaki-Logo-Redondo.png" },
-    { id: 9, name: "Papa Johns", logo: "https://i.ibb.co/6JtyN6T/Logo-Redondo-Papa-Johns.png" },
-]
-
+    { id: 1, name: "McDonald's", logo: "https://i.ibb.co/CV8KXKd/Mc-Logo-Redondo.png" },
+    { id: 2, name: "Burger King", logo: "https://i.ibb.co/G9KWQZp/Burger-King-Logo-Redondo.png" },
+    { id: 3, name: "KFC", logo: "https://i.ibb.co/QPGSR78/KCF-Logo-Redondo.png" },
+    { id: 4, name: "Pizza Hut", logo: "https://i.ibb.co/C2q7nTs/Pizza-Hut-Logo-Redondo.png" },
+    { id: 5, name: "Subway", logo: "https://i.ibb.co/c3kwDky/Sub-Way-Logo-Redondo.png" },
+    { id: 6, name: "Super Lama", logo: "https://i.ibb.co/CwvQ7VC/Super-Lama-Logo-Redondo.png" },
+    { id: 7, name: "Caribbean Cinemas", logo: "https://i.ibb.co/vxjmKRg/Caribbean-Cinema-Logo.png" },
+    { id: 8, name: "Teriyaki", logo: "https://i.ibb.co/42ddm11/Teriyaki-Logo-Redondo.png" },
+    { id: 9, name: "Papa Johns", logo: "https://i.ibb.co/THf23F0/Logo-Redondo-Papa-Johns.png" },
+];
 export default function Component() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
     const containerRef = useRef<HTMLDivElement>(null)

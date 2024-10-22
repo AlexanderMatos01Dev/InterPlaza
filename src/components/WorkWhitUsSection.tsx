@@ -12,7 +12,7 @@ const WorkWithUsSection: React.FC = () => {
             {/* Fondo con imagen */}
             <motion.div
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url('https://i.ibb.co/xDgczz6/Fondo-Trabajo.png')` }}
+                style={{ backgroundImage: `url('https://i.ibb.co/qBjnp1f/Fondo-Trabajo.png')` }}
                 initial={{ scale: 1 }}
                 animate={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}

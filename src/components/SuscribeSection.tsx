@@ -50,7 +50,7 @@ export default function SubscribeSection() {
                 <div className="relative w-full h-full">
                     <img
                         ref={imageRef}
-                        src="https://i.ibb.co/5r4y3QG/Persona-Senalando.png"
+                        src="https://i.ibb.co/q067yQJ/Persona-Senalando.png"
                         alt=""
                         className="absolute bottom-0 right-0 w-1/2 sm:w-2/5 md:w-1/3 lg:w-1/4 h-auto object-contain object-bottom -mb-20"
                     />

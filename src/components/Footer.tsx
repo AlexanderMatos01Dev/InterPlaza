@@ -23,7 +23,7 @@ export default function Footer() {
             {/* Imagen centrada con opacidad */}
             <div className="absolute inset-0 flex justify-center items-center opacity-10 pointer-events-none">
                 <img
-                    src="https://i.ibb.co/NTJHBGS/Inter-Plaza-Icono.png"
+                    src="https://i.ibb.co/st8wYLD/Inter-Plaza-Icono.png"
                     alt="InterPlaza Logo"
                     className="w-3/8 h-full object-cover transform translate-x-[-90%]"
                 />
