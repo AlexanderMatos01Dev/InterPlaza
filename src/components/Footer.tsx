@@ -21,27 +21,26 @@ export default function Footer() {
     return (
         <footer className="relative bg-gray-200 text-gray-700">
             {/* Imagen centrada con opacidad */}
-            <div className="absolute inset-0 flex justify-center items-center opacity-10 pointer-events-none">
-                <img
-                    src="https://i.ibb.co/st8wYLD/Inter-Plaza-Icono.png"
-                    alt="InterPlaza Logo"
-                    className="w-3/8 h-full object-cover transform translate-x-[-90%]"
-                />
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="relative max-w-7xl mx-auto h-full">
+                    <img
+                        src="https://i.ibb.co/st8wYLD/Inter-Plaza-Icono.png"
+                        alt="InterPlaza Logo"
+                        className="absolute top-[20%] left-[10%] sm:left-[15%] md:top-[25%] md:left-[20%] lg:top-1/2 lg:left-0 transform -translate-y-1/2 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] xl:w-[35%] opacity-10 object-contain transition-all duration-300"
+                    />
+                </div>
             </div>
 
-            <div className="relative max-w-7xl mx-auto px-4 py-12">
+            <div className="relative max-w-7xl mx-auto px-4 py-12 z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Información de contacto */}
-                    <div className="flex flex-col">
-                        <div className="h-24 mb-6 relative">
+                    <div className="flex flex-col md:col-span-2 lg:col-span-1">
+                        <div className="h-24 mb-6 relative flex justify-start">
                             <img
                                 src="https://i.ibb.co/sC900wQ/img-2024-10-18-18-53-56-removebg-preview.png"
                                 alt="InterPlaza Logo"
-                                className="h-full w-auto object-contain absolute left-0"
-                                onError={(e) => {
-                                    e.currentTarget.src = 'https://via.placeholder.com/150';
-                                    e.currentTarget.alt = 'Placeholder Logo';
-                                }}
+                                className="h-full w-auto object-contain"
+                                loading="lazy"
                             />
                         </div>
                         <div className="flex flex-col space-y-3">

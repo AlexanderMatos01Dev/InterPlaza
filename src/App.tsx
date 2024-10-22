@@ -3,10 +3,12 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import Categories from './components/Categories';
 import InfinitePartnerCarousel from './components/InfinitePartnerCarousel';
+import QuienesSomos from './components/QuienesSomos';
 import OpeningHours from './components/OpeningHours';
 import EventsAndActivities from './components/EventsAndActivities';
 import WorkWithUsSection from './components/WorkWhitUsSection';
 import SuscribeSection from "./components/SuscribeSection.tsx";
+
 
 function App() {
     return (
@@ -19,31 +21,34 @@ function App() {
                 <main className="flex-grow flex flex-col items-center justify-start p-4 sm:p-6 mt-24 sm:mt-28">
                     <Home/>
                     <div
-                        className="w-full max-w-7xl mx-auto my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
-                    <div className="w-full text-center">
+                        className="w-full max-w-7xl mx-auto my-8 sm:my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
+                    <div className="w-full">
                         <InfinitePartnerCarousel/>
                     </div>
                     <div
-                        className="w-full max-w-7xl mx-auto my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
+                        className="w-full max-w-7xl mx-auto my-8 sm:my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
+                    <div className="w-full">
+                        <QuienesSomos/>
+                    </div>
+                    <div
+                        className="w-full max-w-7xl mx-auto my-8 sm:my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
                     <div className="w-full">
                         <Categories/>
                     </div>
                     <div
-                        className="w-full max-w-7xl mx-auto my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
+                        className="w-full max-w-7xl mx-auto my-8 sm:my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
                     <div className="w-full">
                         <OpeningHours/>
                     </div>
                     <div
-                        className="w-full max-w-7xl mx-auto my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
+                        className="w-full max-w-7xl mx-auto my-8 sm:my-12 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
                     <div className="w-full">
                         <EventsAndActivities/>
                     </div>
-
                 </main>
                 <div className="w-full">
                     <SuscribeSection/>
                 </div>
-                {/* Aquí separas la sección de WorkWithUs */}
                 <div className="w-full">
                     <WorkWithUsSection/>
                 </div>

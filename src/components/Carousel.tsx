@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface SlideData {
-  id: number
-  title: string
-  backgroundImage: string
-  overlayImage?: string
+  id: number;
+  title: string;
+  backgroundImage: string;
+  overlayImage: string;
 }
 
 const slideData: SlideData[] = [
@@ -37,30 +37,38 @@ const slideData: SlideData[] = [
 
 export default function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slideData.length)
-    }, 5000)
-
-    return () => clearInterval(interval)
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slideData.length)
   }, [])
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slideData.length)
-  }
-
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + slideData.length) % slideData.length)
-  }
+  }, [])
 
-  const goToSlide = (index: number) => {
+  const goToSlide = useCallback((index: number) => {
     setCurrentSlide(index)
-  }
+  }, [])
+
+  useEffect(() => {
+    let interval: number | undefined
+    if (isAutoPlaying) {
+      interval = window.setInterval(nextSlide, 5000)
+    }
+    return () => window.clearInterval(interval)
+  }, [isAutoPlaying, nextSlide])
+
+  const handleMouseEnter = () => setIsAutoPlaying(false)
+  const handleMouseLeave = () => setIsAutoPlaying(true)
 
   return (
-      <div className="relative w-full">
-        <div className="relative w-full h-[250px] sm:h-[350px] overflow-hidden rounded-xl shadow-lg">
+      <div
+          className="relative w-full"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+      >
+        <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] overflow-hidden rounded-xl shadow-lg">
           {slideData.map((slide, index) => (
               <div
                   key={slide.id}
@@ -71,7 +79,8 @@ export default function Carousel() {
                 <img
                     src={slide.backgroundImage}
                     alt={slide.title}
-                    className="w-full h-full object-cover object-bottom"
+                    className="w-full h-full object-cover object-center"
+                    loading={index < 2 ? "eager" : "lazy"}
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
                   <h2 className="text-white text-xl sm:text-2xl font-bold">{slide.title}</h2>
@@ -80,7 +89,8 @@ export default function Carousel() {
                     <img
                         src={slide.overlayImage}
                         alt={`${slide.title} logo`}
-                        className="absolute bottom-4 right-4 w-16 h-16 object-contain"
+                        className="absolute bottom-4 right-4 w-12 h-12 sm:w-16 sm:h-16 object-contain"
+                        loading="lazy"
                     />
                 )}
               </div>
@@ -105,7 +115,7 @@ export default function Carousel() {
               <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${
                       index === currentSlide ? 'bg-white' : 'bg-white/50'
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
