@@ -81,7 +81,7 @@ export default function SubscribeSection() {
                         className="absolute bottom-0 right-0 w-1/2 sm:w-2/5 md:w-1/3 lg:w-1/4 h-auto object-contain object-bottom"
                         style={{ transform: 'translateY(10%)' }}  // Cambiado de 20% a 10% para que se vea menos cortada
                     />
-                    <div className="absolute inset-0 bg-[rgb(222,62,86)] bg-opacity-70"></div>
+                    <div className="absolute inset-0 bg-[rgb(222,62,86)] bg-opacity-10"></div>
                 </div>
             </motion.div>
 
