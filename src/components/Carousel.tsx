@@ -13,25 +13,25 @@ const slideData: SlideData[] = [
     id: 1,
     title: "Papa Johns",
     backgroundImage: "https://i.ibb.co/gRZ6HJS/Inter-Plaza-Papa-Jhons.png",
-    overlayImage: "https://i.ibb.co/6JtyN6T/Logo-Redondo-Papa-Johns.png",
+    overlayImage: "https://i.ibb.co/THf23F0/Logo-Redondo-Papa-Johns.png",
   },
   {
     id: 2,
     title: "Super Lama",
     backgroundImage: "https://i.ibb.co/hC2zwKY/Super-Lama.png",
-    overlayImage: "https://i.ibb.co/cFxNVb5/Super-Lama-Logo-Redondo.png",
+    overlayImage: "https://i.ibb.co/CwvQ7VC/Super-Lama-Logo-Redondo.png",
   },
   {
     id: 3,
     title: "Caribbean Cinemas",
     backgroundImage: "https://i.ibb.co/znTXtkq/Cine.png",
-    overlayImage: "https://i.ibb.co/HgN2G5P/Caribbean-Cinema-Logo.png",
+    overlayImage: "https://i.ibb.co/vxjmKRg/Caribbean-Cinema-Logo.png",
   },
   {
     id: 4,
     title: "Teriyaki",
     backgroundImage: "https://i.ibb.co/qNBshQR/Teriyaki.png",
-    overlayImage: "https://i.ibb.co/d7Hpxyj/Teriyaki-Logo-Redondo.png",
+    overlayImage: "https://i.ibb.co/42ddm11/Teriyaki-Logo-Redondo.png",
   },
 ];
 
