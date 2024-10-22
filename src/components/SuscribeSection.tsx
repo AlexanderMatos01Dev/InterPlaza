@@ -1,12 +1,20 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useInView, useAnimation } from 'framer-motion'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Label } from "@/components/ui/label"
 
 export default function SubscribeSection() {
     const [containerHeight, setContainerHeight] = useState('auto')
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isChecked, setIsChecked] = useState(false)
     const containerRef = useRef<HTMLDivElement>(null)
     const imageRef = useRef<HTMLImageElement>(null)
+    const isInView = useInView(containerRef, { once: false, amount: 0.3 })
+    const controls = useAnimation()
 
     useEffect(() => {
         const updateContainerHeight = () => {
@@ -35,6 +43,18 @@ export default function SubscribeSection() {
         return () => window.removeEventListener('resize', updateContainerHeight)
     }, [])
 
+    useEffect(() => {
+        if (isInView) {
+            controls.start({ scale: 1.05, transition: { duration: 0.5 } })
+        }
+    }, [isInView, controls])
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        // Handle form submission
+        console.log('Form submitted')
+    }
+
     return (
         <div
             ref={containerRef}
@@ -44,8 +64,7 @@ export default function SubscribeSection() {
             <motion.div
                 className="absolute inset-0 w-full h-full"
                 initial={{ scale: 1 }}
-                animate={{ scale: 1.05 }}
-                transition={{ duration: 0.5 }}
+                animate={controls}
             >
                 <div className="relative w-full h-full">
                     <img
@@ -72,31 +91,53 @@ export default function SubscribeSection() {
                     <p className="text-sm sm:text-base md:text-lg mb-3 sm:mb-4">
                         Diviértete cada día con todas nuestras marcas, promociones y eventos.
                     </p>
-                    <form className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-2">
+                    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-2">
                         <input
                             type="email"
                             placeholder="Escribe aquí tu email"
                             className="w-full sm:w-auto px-3 py-2 rounded-full text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white"
                             aria-label="Email para suscripción"
                         />
-                        <button
-                            type="submit"
-                            className="w-full sm:w-auto px-4 py-2 bg-white text-[rgb(222,62,86)] text-sm sm:text-base font-semibold rounded-full hover:bg-opacity-90 transition-colors duration-200"
-                        >
+                        <Button type="submit" className="w-full sm:w-auto px-4 py-2 bg-white text-[rgb(222,62,86)] text-sm sm:text-base font-semibold rounded-full hover:bg-opacity-90 transition-colors duration-200 border border-[rgb(222,62,86)]">
                             Suscríbete
-                        </button>
+                        </Button>
                     </form>
-                    <div className="mt-2 sm:mt-3 flex items-center justify-center text-xs sm:text-sm">
-                        <input type="checkbox" id="terms" className="mr-2" />
-                        <label htmlFor="terms">
+                    <div className="mt-2 sm:mt-3 flex items-center justify-center text-xs sm:text-sm text-white">
+                        <Checkbox id="terms" checked={isChecked} onCheckedChange={(checked) => setIsChecked(checked as boolean)} className="mr-2 border-white" />
+                        <Label htmlFor="terms" className="text-white">
                             Aceptas nuestros{' '}
-                            <a href="/terminos" className="underline hover:text-opacity-80">
+                            <Button variant="link" className="underline hover:text-opacity-80 p-0 text-white" onClick={() => setIsModalOpen(true)}>
                                 términos y condiciones
-                            </a>
-                        </label>
+                            </Button>
+                        </Label>
                     </div>
                 </motion.div>
             </div>
+
+            <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                <DialogContent className="bg-white text-[rgb(71,79,84)]">
+                    <DialogHeader>
+                        <DialogTitle className="text-[rgb(222,62,86)]">Términos y Condiciones</DialogTitle>
+                        <DialogDescription>
+                            <p className="mb-4">
+                                Inter Plaza tiene el derecho de utilizar la información proporcionada para mejorar la experiencia del usuario y ofrecer promociones personalizadas.
+                            </p>
+                            <p className="mb-4">
+                                Con esta información, Inter Plaza podrá enviar notificaciones sobre eventos, ofertas especiales y novedades de las marcas presentes en el centro comercial.
+                            </p>
+                            <p className="mb-4">
+                                Usted, como usuario, se beneficiará de recibir información actualizada, descuentos exclusivos y la oportunidad de participar en eventos especiales.
+                            </p>
+                            <p>
+                                Al aceptar estos términos, usted da permiso a Inter Plaza para procesar su información personal de acuerdo con nuestra política de privacidad y las leyes de protección de datos aplicables.
+                            </p>
+                        </DialogDescription>
+                    </DialogHeader>
+                    <Button onClick={() => setIsModalOpen(false)} className="bg-[rgb(222,62,86)] text-white hover:bg-[rgb(222,62,86)]/90 rounded-full">
+                        Cerrar
+                    </Button>
+                </DialogContent>
+            </Dialog>
         </div>
     )
 }
