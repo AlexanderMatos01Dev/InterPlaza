@@ -11,6 +11,7 @@ export default function SubscribeSection() {
     const [containerHeight, setContainerHeight] = useState('auto')
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [isChecked, setIsChecked] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false)
     const containerRef = useRef<HTMLDivElement>(null)
     const imageRef = useRef<HTMLImageElement>(null)
     const isInView = useInView(containerRef, { once: false, amount: 0.3 })
@@ -21,33 +22,39 @@ export default function SubscribeSection() {
             if (containerRef.current && imageRef.current) {
                 const viewportWidth = window.innerWidth
                 const imageHeight = imageRef.current.offsetHeight
-                let newHeight = '50vh'
+                let newHeight = '70vh'  // Aumentado de 50vh a 70vh
 
                 if (viewportWidth < 640) {
-                    newHeight = '50vh'
+                    newHeight = '70vh'  // Aumentado de 50vh a 70vh
                 } else if (viewportWidth < 768) {
-                    newHeight = '40vh'
+                    newHeight = '60vh'  // Aumentado de 40vh a 60vh
                 } else if (viewportWidth < 1024) {
-                    newHeight = '30vh'
+                    newHeight = '50vh'  // Aumentado de 30vh a 50vh
                 } else {
-                    newHeight = '25vh'
+                    newHeight = '40vh'  // Aumentado de 25vh a 40vh
                 }
 
-                const minHeight = `${imageHeight * 0.8}px`
+                const minHeight = `${imageHeight}px`  // Cambiado de 0.8 a 1 para usar toda la altura de la imagen
                 setContainerHeight(`max(${newHeight}, ${minHeight})`)
             }
         }
 
-        updateContainerHeight()
+        const img = new Image()
+        img.src = "https://i.ibb.co/q067yQJ/Persona-Senalando.png"
+        img.onload = () => {
+            setIsLoaded(true)
+            updateContainerHeight()
+        }
+
         window.addEventListener('resize', updateContainerHeight)
         return () => window.removeEventListener('resize', updateContainerHeight)
     }, [])
 
     useEffect(() => {
-        if (isInView) {
+        if (isInView && isLoaded) {
             controls.start({ scale: 1.05, transition: { duration: 0.5 } })
         }
-    }, [isInView, controls])
+    }, [isInView, controls, isLoaded])
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -59,7 +66,7 @@ export default function SubscribeSection() {
         <div
             ref={containerRef}
             className="relative w-full bg-[rgb(222,62,86)] overflow-hidden flex items-center justify-center"
-            style={{ height: containerHeight }}
+            style={{ height: containerHeight, opacity: isLoaded ? 1 : 0, transition: 'opacity 0.5s ease-in-out' }}
         >
             <motion.div
                 className="absolute inset-0 w-full h-full"
@@ -71,18 +78,19 @@ export default function SubscribeSection() {
                         ref={imageRef}
                         src="https://i.ibb.co/q067yQJ/Persona-Senalando.png"
                         alt=""
-                        className="absolute bottom-0 right-0 w-1/2 sm:w-2/5 md:w-1/3 lg:w-1/4 h-auto object-contain object-bottom -mb-20"
+                        className="absolute bottom-0 right-0 w-1/2 sm:w-2/5 md:w-1/3 lg:w-1/4 h-auto object-contain object-bottom"
+                        style={{ transform: 'translateY(10%)' }}  // Cambiado de 20% a 10% para que se vea menos cortada
                     />
                     <div className="absolute inset-0 bg-[rgb(222,62,86)] bg-opacity-70"></div>
                 </div>
             </motion.div>
 
-            <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12 md:py-16">  {/* Añadido padding vertical */}
                 <motion.div
                     className="w-full text-white"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                 >
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-2 sm:mb-3">
                         ENTÉRATE DE LO QUE SUCEDE EN <br />
